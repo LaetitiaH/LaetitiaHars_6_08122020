@@ -4,6 +4,8 @@
   "description": "project 6",
   "main": "index.html",
   "scripts": {
+    "prettier": "prettier --write \"**\"",
+    "prettier:check": "prettier --check \"**\""
   },
   "repository": {
     "type": "git",
@@ -14,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020/issues"
   },
-  "homepage": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020#readme"
+  "homepage": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020#readme",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
 }
