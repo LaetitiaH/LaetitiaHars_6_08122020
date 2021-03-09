@@ -1,0 +1,18 @@
+{
+  "name": "p06",
+  "version": "1.0.0",
+  "description": "project 6",
+  "main": "index.html",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaetitiaH/LaetitiaHars_6_08122020.git"
+  },
+  "author": "Laetitia Hars",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020/issues"
+  },
+  "homepage": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020#readme"
+}
