@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/LaetitiaH/LaetitiaHars_6_08122020#readme",
   "devDependencies": {
+    "eslint": "^7.21.0",
     "prettier": "2.2.1"
   }
 }
