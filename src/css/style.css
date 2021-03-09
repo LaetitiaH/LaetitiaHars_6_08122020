@@ -1,3 +1,69 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("assets/police/DM_Sans/DMSans-Regular.ttf");
+}
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  padding: 40px 25px;
+}
 
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 40px 90px;
+  }
+}
+header section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header section h1 {
+  font-size: 0.9em;
+  color: #901c1c;
+  font-weight: 400;
+}
+header nav {
+  text-align: center;
+  margin-top: 40px;
+}
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+header nav ul li {
+  border: 0.5px solid #c4c4c4;
+  border-radius: 40px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #901c1c;
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+}
+header nav ul li:active, header nav ul li:hover {
+  color: #ffffff;
+  background-color: #901c1c;
+}
+
+@media screen and (min-width: 1200px) {
+  nav {
+    display: flex;
+    margin: -85px auto 0 !important;
+    flex-wrap: wrap;
+    width: 40%;
+  }
+
+  h1 {
+    font-size: 2.3em !important;
+    max-width: 30%;
+  }
+
+  img {
+    width: 200px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
