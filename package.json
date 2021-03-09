@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "prettier": "prettier --write \"**\"",
-    "prettier:check": "prettier --check \"**\""
+    "prettier:check": "prettier --check \"**\"",
+    "sass": "sass --watch ./sass/main.scss:./src/css/style.css"
   },
   "repository": {
     "type": "git",
