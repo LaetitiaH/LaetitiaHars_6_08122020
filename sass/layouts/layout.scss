@@ -1,8 +1,13 @@
 header {
+  .evitement-link {
+    display: none;
+  }
+
   section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 40px;
 
     h1 {
       font-size: 0.9em;
@@ -10,51 +15,61 @@ header {
       font-weight: 400;
     }
   }
+}
 
-  nav {
-    text-align: center;
-    margin-top: 40px;
-
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-
-      li {
-        border: 0.5px solid #c4c4c4;
-        border-radius: 40px;
-        font-size: 0.8em;
-        font-weight: 600;
-        color: $color-primary;
-        margin: 5px 5px 5px 0;
-        padding: 5px 10px;
-
-        &:active,
-        &:hover {
-          color: #ffffff;
-          background-color: $color-primary;
-        }
-      }
-    }
+main {
+  header {
+    margin-top: 25px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  nav {
+  header {
+    padding: 0 70px 110px 0;
+
+    .evitement-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -30px auto;
+      width: 180px;
+      height: 30px;
+      font-weight: bold;
+      line-height: 23px;
+      text-align: center;
+      font-size: 1.1em;
+      background-color: transparent;
+      color: transparent;
+      border-radius: 5px;
+      cursor: none;
+      transition: all 200ms;
+
+      &:focus {
+        background-color: #db8876;
+        color: black;
+      }
+    }
+  }
+
+  .main-nav {
     display: flex;
-    margin: -85px auto 0 !important;
+    margin: -107px auto 0 !important;
     flex-wrap: wrap;
-    width: 40%;
+    width: calc(100% - 60%);
+    justify-content: center;
   }
 
   h1 {
     font-size: 2.3em !important;
-    max-width: 30%;
   }
 
   img {
     width: 200px;
+  }
+
+  main {
+    header {
+      padding: 50px;
+    }
   }
 }

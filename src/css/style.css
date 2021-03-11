@@ -13,28 +13,87 @@ body {
     padding: 40px 90px;
   }
 }
+a {
+  text-decoration: none;
+}
+
+header .evitement-link {
+  display: none;
+}
 header section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 header section h1 {
   font-size: 0.9em;
   color: #901c1c;
   font-weight: 400;
 }
-header nav {
-  text-align: center;
-  margin-top: 40px;
+
+main header {
+  margin-top: 25px;
 }
-header nav ul {
+
+@media screen and (min-width: 1200px) {
+  header {
+    padding: 0 70px 110px 0;
+  }
+  header .evitement-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -30px auto;
+    width: 180px;
+    height: 30px;
+    font-weight: bold;
+    line-height: 23px;
+    text-align: center;
+    font-size: 1.1em;
+    background-color: transparent;
+    color: transparent;
+    border-radius: 5px;
+    cursor: none;
+    transition: all 200ms;
+  }
+  header .evitement-link:focus {
+    background-color: #db8876;
+    color: black;
+  }
+
+  .main-nav {
+    display: flex;
+    margin: -107px auto 0 !important;
+    flex-wrap: wrap;
+    width: calc(100% - 60%);
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2.3em !important;
+  }
+
+  img {
+    width: 200px;
+  }
+
+  main header {
+    padding: 50px;
+  }
+}
+.tag {
+  text-align: center;
+}
+
+ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-header nav ul li {
+ul li {
   border: 0.5px solid #c4c4c4;
   border-radius: 40px;
   font-size: 0.8em;
@@ -42,28 +101,131 @@ header nav ul li {
   color: #901c1c;
   margin: 5px 5px 5px 0;
   padding: 5px 10px;
+  cursor: pointer;
 }
-header nav ul li:active, header nav ul li:hover {
+ul li:active, ul li:hover, ul li[data-checked=true] {
   color: #ffffff;
   background-color: #901c1c;
 }
+ul a {
+  text-decoration: none;
+  color: unset;
+}
 
-@media screen and (min-width: 1200px) {
-  nav {
-    display: flex;
-    margin: -85px auto 0 !important;
-    flex-wrap: wrap;
-    width: 40%;
-  }
+.profil-photo, .profil-photo_small, .profil-photo_big {
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
 
-  h1 {
-    font-size: 2.3em !important;
-    max-width: 30%;
-  }
+.profil-photo_big {
+  width: 200px;
+  height: 200px;
+}
 
-  img {
-    width: 200px;
+.profil-photo_small {
+  width: 100px;
+  height: 100%;
+}
+
+.profil-title {
+  font-size: 36px;
+  line-height: 47px;
+  color: #d3573c;
+  margin: 15px 0 0;
+}
+
+.localization {
+  font-size: 0.8em;
+  line-height: 17px;
+  color: #901c1c;
+  margin: 0;
+}
+
+.quote {
+  font-size: 0.8em;
+  line-height: 13px;
+  color: #000000;
+  margin: 4px 0;
+}
+.quote--grey {
+  color: #525252;
+}
+
+.price {
+  font-size: 0.8em;
+  line-height: 12px;
+  color: #757575;
+  margin: 4px 0;
+}
+
+ul {
+  justify-content: center;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 1024px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px 15px;
   }
+  .main-content article:nth-child(1n) {
+    align-items: baseline;
+  }
+  .main-content article:nth-child(2n),
+.main-content article:nth-child(5n) {
+    align-items: center;
+  }
+  .main-content article:nth-child(4n) {
+    align-items: baseline;
+  }
+  .main-content article:nth-child(3n),
+.main-content article:nth-child(6n) {
+    align-items: flex-end;
+  }
+}
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+article a {
+  text-align: center;
+}
+article a h2 {
+  width: 350px;
+}
+article .photographer-informations {
+  text-align: center;
+  width: 350px;
+}
+article .photographer-tag {
+  width: 350px;
+}
+
+main header {
+  display: flex;
+  align-items: flex-start;
+}
+main header section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: max-content;
+}
+main header section:nth-child(2n) {
+  width: calc(100% - 100px);
+  height: 100px;
+  margin-top: 15px;
+  align-items: flex-end;
+}
+main header ul {
+  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=style.css.map */

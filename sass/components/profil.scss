@@ -1,0 +1,48 @@
+.profil-photo {
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.profil-photo_big {
+  @extend .profil-photo;
+  width: 200px;
+  height: 200px;
+}
+
+.profil-photo_small {
+  @extend .profil-photo;
+  width: 100px;
+  height: 100%;
+}
+
+.profil-title {
+  font-size: 36px;
+  line-height: 47px;
+  color: $color-secondary;
+  margin: 15px 0 0;
+}
+
+.localization {
+  font-size: 0.8em;
+  line-height: 17px;
+  color: $color-primary;
+  margin: 0;
+}
+
+.quote {
+  font-size: 0.8em;
+  line-height: 13px;
+  color: #000000;
+  margin: 4px 0;
+
+  &--grey {
+    color: #525252;
+  }
+}
+
+.price {
+  font-size: 0.8em;
+  line-height: 12px;
+  color: #757575;
+  margin: 4px 0;
+}

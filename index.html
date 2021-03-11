@@ -8,24 +8,65 @@
   </head>
   <body>
     <header role="banner">
+      <a class="evitement-link" href="#main-content">Passer au contenu</a>
       <section>
         <a aria-label="Fisheye" href="#">
           <img src="assets/logo/logo.svg" alt="Fisheye Home page" />
         </a>
         <h1>Nos photographes</h1>
       </section>
-      <nav role="navigation" aria-label="photographer categories">
+      <nav
+        role="navigation"
+        class="tag main-nav"
+        aria-label="photographer categories"
+      >
         <ul>
-          <li aria-label="portrait tag">#Portrait</li>
-          <li aria-label="art tag">#Art</li>
-          <li aria-label="fashion tag">#Fashion</li>
-          <li aria-label="architecture tag">#Architecture</li>
-          <li aria-label="travel tag">#Travel</li>
-          <li aria-label="sport tag">#Sport</li>
-          <li aria-label="animals tag">#Animals</li>
-          <li aria-label="events tag">#Events</li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="portrait tag">#Portrait</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="art tag">#Art</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="fashion tag">#Fashion</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="architecture tag">#Architecture</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="travel tag">#Travel</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="sport tag">#Sport</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="animals tag">#Animals</a>
+          </li>
+          <li class="tag-name" data-checked="false">
+            <a href="#" aria-label="events tag">#Events</a>
+          </li>
         </ul>
       </nav>
     </header>
+    <main>
+      <div id="main-content" class="main-content"></div>
+    </main>
+
+    <script src="src/index.js"></script>
   </body>
+
+  <template id="photograph">
+    <article>
+      <a aria-label="" href="#">
+        <img class="profil-photo_big" src="#" alt="" />
+        <h2 class="profil-title"></h2>
+      </a>
+      <div class="photographer-informations">
+        <p class="localization"></p>
+        <p class="quote"></p>
+        <p class="price"></p>
+      </div>
+      <ul class="photographer-tag tag"></ul>
+    </article>
+  </template>
 </html>

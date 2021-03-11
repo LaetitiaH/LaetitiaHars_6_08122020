@@ -1,0 +1,33 @@
+.tag {
+  text-align: center;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    border: 0.5px solid #c4c4c4;
+    border-radius: 40px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: $color-primary;
+    margin: 5px 5px 5px 0;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:active,
+    &:hover,
+    &[data-checked="true"] {
+      color: #ffffff;
+      background-color: $color-primary;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+}
