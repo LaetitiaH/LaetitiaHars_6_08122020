@@ -9,12 +9,11 @@ getPhotographersList().then((res) => {
   displayPhotographersList();
 });
 
-// DOM elements
+// DOM
 const mainContent = document.querySelector(".main-content");
-
 // Get list of photographers and set initialPhotographers and photographers
 function getPhotographersList() {
-  return fetch("/P06/assets/json/photographers.json")
+  return fetch("assets/json/photographers.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("HTTP error " + response.status);
@@ -84,10 +83,13 @@ function setPhotographersInformations(
   // Set attribute and text in clone template
   template.querySelector("a").setAttribute("aria-label", name);
   template.querySelector(".profil-photo_big").setAttribute("src", srcImg);
+  template
+    .querySelector(".profil-photo_big")
+    .setAttribute("alt", `${name} photo`);
   template.querySelector(".profil-title").textContent = name;
   template.querySelector(".localization").textContent = `${city}, ${country}`;
   template.querySelector(".quote").textContent = tagline;
-  template.querySelector(".price").textContent = `${price}€ par jour`;
+  template.querySelector(".price").textContent = `${price}€/jour`;
   template
     .querySelector(".photographer-tag")
     .setAttribute("aria-label", `${name} personal categories`);
