@@ -1,4 +1,4 @@
-header {
+.index-header {
   .evitement-link {
     display: none;
   }
@@ -19,35 +19,32 @@ header {
 
 main {
   header {
-    margin-top: 25px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    header {
+      padding: 50px;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  header {
+  .index-header {
     padding: 0 70px 110px 0;
+  }
 
-    .evitement-link {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: -30px auto;
-      width: 180px;
-      height: 30px;
-      font-weight: bold;
-      line-height: 23px;
-      text-align: center;
-      font-size: 1.1em;
-      background-color: transparent;
-      color: transparent;
-      border-radius: 5px;
-      cursor: none;
-      transition: all 200ms;
+  .photographer-header {
+    padding: 0 70px 40px 0;
+  }
 
-      &:focus {
-        background-color: #db8876;
-        color: black;
-      }
+  header {
+    img {
+      width: 200px;
     }
   }
 
@@ -61,15 +58,5 @@ main {
 
   h1 {
     font-size: 2.3em !important;
-  }
-
-  img {
-    width: 200px;
-  }
-
-  main {
-    header {
-      padding: 50px;
-    }
   }
 }

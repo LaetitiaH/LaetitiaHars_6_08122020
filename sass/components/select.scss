@@ -1,0 +1,48 @@
+label {
+  margin-right: 25px;
+  font-weight: 700;
+  font-size: 1.125em;
+  line-height: 1.4375em;
+  height: 100%;
+  vertical-align: top;
+}
+
+select {
+  width: 170px;
+  height: 70px;
+  background-color: $color-primary;
+  color: white;
+  font-weight: bold;
+  font-size: 1.125em;
+  line-height: 1.4375em;
+  border-radius: 5px;
+  overflow: hidden !important;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  padding-left: 20px;
+
+  &::after {
+    content: "\f077";
+    font-family: "Font Awesome 5 Free", sans-serif;
+    position: relative;
+    right: -145px;
+    top: -158px;
+    font-size: 0.6em;
+  }
+
+  option {
+    display: none;
+    height: calc(170px / 3);
+    margin: 0 10px 0 10px;
+    align-items: center;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    font-size: 1.125em;
+    line-height: 1.4375em;
+    z-index: 1;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -16,33 +16,60 @@
 }
 
 .profil-title {
-  font-size: 36px;
-  line-height: 47px;
+  font-size: 2.25em;
   color: $color-secondary;
   margin: 15px 0 0;
+  line-height: 1.5em;
+  font-weight: 400;
 }
 
 .localization {
   font-size: 0.8em;
-  line-height: 17px;
+  line-height: 1.4em;
   color: $color-primary;
   margin: 0;
 }
 
 .quote {
   font-size: 0.8em;
-  line-height: 13px;
+  line-height: 1.4em;
   color: #000000;
   margin: 4px 0;
 
   &--grey {
-    color: #525252;
+    color: $grey-text;
   }
 }
 
 .price {
   font-size: 0.8em;
-  line-height: 12px;
-  color: #757575;
+  line-height: 1.4em;
+  color: $grey-text;
   margin: 4px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    section {
+      .profil-title {
+        font-size: 4em !important;
+      }
+
+      .localization {
+        font-size: 1.5em;
+      }
+
+      .quote {
+        font-size: 1.125em;
+        margin-bottom: 10px;
+      }
+
+      .profil-photo_small {
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
 }

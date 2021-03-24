@@ -1,0 +1,91 @@
+.profil-pictures-list__picture {
+  margin-bottom: 0;
+
+  .photographer-picture {
+    width: 100%;
+    height: 190px;
+    border-radius: 5px;
+    object-fit: cover;
+    background-color: $grey;
+  }
+
+  h2 {
+    font-size: 0.9em;
+    line-height: 1.125em;
+    color: $color-primary;
+  }
+
+  .profil-pictures-list__description {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      align-items: center;
+      color: $color-primary;
+      font-size: 0.9em;
+      line-height: 1.125em;
+
+      p:first-child {
+        font-size: 0.9em;
+        line-height: 1.125em;
+        margin-right: 10px;
+      }
+
+      .heart {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profil-pictures-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0 95px;
+    position: absolute;
+    top: 565px;
+    padding-right: 90px;
+
+    .profil-pictures-list__picture {
+      h2 {
+        font-size: 1.5em;
+        font-weight: 400;
+      }
+
+      .photographer-picture {
+        height: 300px;
+      }
+
+      div {
+        p {
+          font-size: 1.5em;
+        }
+
+        p:first-child {
+          font-weight: 500;
+          font-size: 1.5em;
+        }
+
+        p:nth-child(2n) {
+          height: 24px;
+          display: flex;
+          align-items: center;
+
+          img {
+            margin-left: 5px;
+          }
+        }
+
+        .heart {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}

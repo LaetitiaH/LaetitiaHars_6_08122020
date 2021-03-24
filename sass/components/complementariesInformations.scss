@@ -1,0 +1,25 @@
+aside {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  aside {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    right: 36px;
+    width: 375px;
+    height: 70px;
+    background-color: $color-secondary;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.5em;
+
+    .heart {
+      width: 18px;
+      height: 18px;
+      color: black;
+    }
+  }
+}

@@ -2,15 +2,17 @@
   font-family: "DM Sans";
   src: url("assets/police/DM_Sans/DMSans-Regular.ttf");
 }
+
 body {
-  margin: 0;
   font-family: "DM Sans", sans-serif;
   padding: 40px 25px;
+  margin: 0;
 }
 
 @media screen and (min-width: 1024px) {
   body {
     padding: 40px 90px;
+    margin: 0;
   }
 }
 

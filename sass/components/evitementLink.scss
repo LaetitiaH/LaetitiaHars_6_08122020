@@ -1,0 +1,22 @@
+.evitement-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -30px auto;
+  width: 180px;
+  height: 30px;
+  font-weight: bold;
+  line-height: 1.4375em;
+  text-align: center;
+  font-size: 1.1em;
+  background-color: transparent;
+  color: transparent;
+  border-radius: 5px;
+  cursor: none;
+  transition: all 200ms;
+
+  &:focus {
+    background-color: $color-secondary;
+    color: black;
+  }
+}
