@@ -31,3 +31,9 @@ ul {
     color: unset;
   }
 }
+
+#filtersList {
+  li a {
+    text-transform: capitalize;
+  }
+}

@@ -1,16 +1,27 @@
 // Variables initializers
 let photographers;
 let initialPhotographers;
+let filtersList;
 
 // Get photographers list form localhost and launch displayPhotographer and initFilterListener
 getPhotographersList().then((res) => {
   initialPhotographers = res.photographers;
   photographers = initialPhotographers;
+  filtersList = Array.from(
+    new Set(
+      photographers
+        .map((photographer) => photographer.tags)
+        .reduce((acc, tags) => {
+          return acc.concat(tags);
+        })
+    )
+  );
+  displayFiltersList();
   displayPhotographersList();
 });
-
 // DOM
 const mainContent = document.querySelector(".main-content");
+
 // Get list of photographers and set initialPhotographers and photographers
 function getPhotographersList() {
   return fetch("assets/json/photographers.json")
@@ -23,6 +34,18 @@ function getPhotographersList() {
     .catch(function () {
       this.dataError = true;
     });
+}
+
+// Display Filters list
+
+function displayFiltersList() {
+  document.querySelector("#filtersList").innerHTML = filtersList
+    .map(
+      (filter) =>
+        `<li class="tag-name" data-checked="false"><a href="#" aria-label="${filter} tag">#${filter}</a></li>`
+    )
+    .toString()
+    .replace(/,/g, "");
 }
 
 // Display Photographers list
