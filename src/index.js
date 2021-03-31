@@ -60,6 +60,7 @@ function displayPhotographersList() {
       // set DOM foreach photographer
       setPhotographersInformations(
         template_clone,
+        id,
         name,
         city,
         country,
@@ -83,6 +84,7 @@ function initFilterClickListener() {
 
 function setPhotographersInformations(
   template,
+  id,
   name,
   city,
   country,
@@ -105,6 +107,9 @@ function setPhotographersInformations(
 
   // Set attribute and text in clone template
   template.querySelector("a").setAttribute("aria-label", name);
+  template
+    .querySelector("a")
+    .setAttribute("href", `photographer-page.html?id=${id}`);
   template.querySelector(".profil-photo_big").setAttribute("src", srcImg);
   template
     .querySelector(".profil-photo_big")

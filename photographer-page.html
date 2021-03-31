@@ -62,13 +62,16 @@
           />
         </section>
       </header>
-      <section class="sort" aria-labelledby="Trier par">
-        <label for="sort-select">Trier par </label>
-        <select size="0" name="sorts" id="sort-select">
-          <option value="popularity">Popularité</option>
-          <option value="date">Date</option>
-          <option value="title">Titre</option>
-        </select>
+      <section class="sort">
+        <label aria-label="Trier par">Trier par </label>
+        <button
+          type="button"
+          id="Trier par"
+          role="button"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          class="sort-button"
+        ></button>
       </section>
 
       <div class="profil-pictures-list">

@@ -19,9 +19,6 @@ a {
   text-decoration: none;
 }
 
-.index-header .evitement-link {
-  display: none;
-}
 .index-header section {
   display: flex;
   align-items: center;
@@ -100,6 +97,10 @@ ul a {
   color: unset;
 }
 
+#filtersList li a {
+  text-transform: capitalize;
+}
+
 .profil-photo, .profil-photo_small, .profil-photo_big {
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -119,7 +120,6 @@ ul a {
   font-size: 2.25em;
   color: #d3573c;
   margin: 15px 0 0;
-  line-height: 1.5em;
   font-weight: 400;
 }
 
@@ -250,13 +250,13 @@ button, .contact-button {
   font-size: 1.125em;
   cursor: pointer;
 }
-button:hover, .contact-button:hover, button:focus, .contact-button:focus {
-  background-color: #d3573c;
-}
 
 .contact-button {
   width: 170px;
   height: 35px;
+}
+.contact-button:hover, .contact-button:focus {
+  background-color: #d3573c;
 }
 
 @media screen and (min-width: 1024px) {
@@ -276,6 +276,7 @@ label {
 }
 
 select {
+  appearance: none;
   width: 170px;
   height: 70px;
   background-color: #901c1c;
@@ -306,10 +307,59 @@ select option {
   font-weight: bold;
   font-size: 1.125em;
   line-height: 1.4375em;
-  z-index: 1;
 }
 select option:last-child {
   border-bottom: none;
+}
+
+.sort .sort-button {
+  width: 170px;
+  justify-content: space-around;
+  height: 70px;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.sort .sort-button::after {
+  content: "";
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: white;
+}
+.sort span:last-child, .sort span:nth-child(2n) {
+  display: none;
+}
+.sort .buttonCollapsed {
+  width: 170px;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.sort .buttonCollapsed::after {
+  content: "";
+  font-family: "Font Awesome 5 Free", sans-serif;
+  position: relative;
+  right: -62px;
+  top: -150px;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: white;
+  height: 0;
+}
+.sort .itemCollapsed {
+  display: flex !important;
+  height: calc(170px / 3);
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  padding: 0 10px 0 10px;
+  box-sizing: border-box;
+}
+.sort .itemCollapsed:nth-child(2n) {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
 }
 
 aside {
@@ -461,11 +511,12 @@ main .contact-button_fixed {
   main header section .photographer-title {
     display: flex;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    max-width: 600px;
   }
   main .sort {
-    display: block;
+    display: flex;
     position: relative;
     z-index: 1000000;
   }
@@ -483,7 +534,6 @@ main .contact-button_fixed {
   }
   main .photographer-title__contact-button {
     display: block;
-    margin-left: 100px;
   }
 }
 

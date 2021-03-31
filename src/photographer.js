@@ -1,27 +1,61 @@
-const sortSelectElement = document.querySelector("select");
-const options = sortSelectElement.querySelectorAll("option");
+// Display Sort
 
-sortSelectElement.addEventListener("click", displaySortList);
-sortSelectElement.addEventListener("keydown", (key) => {
-  if (key.key === "Enter") {
-    displaySortList();
+let itemsList = ["Popularité", "Date", "Titre"];
+const sortButton = document.querySelector(".sort-button");
+displayItemsList();
+
+let isSortOpen = false;
+
+sortButton.addEventListener("click", toggleSortList);
+sortButton.addEventListener("keydown", (evt) => {
+  if (evt.key === "Enter") {
+    toggleSortList(evt);
   }
 });
 
-function displaySortList() {
-  if (sortSelectElement.attributes.size.value === "0") {
-    options.forEach((option) => {
-      option.style.display = "flex";
-    });
-    sortSelectElement.setAttribute("size", "3");
-    sortSelectElement.style.height = "175px";
-    sortSelectElement.style.padding = "0 10px 0 10px";
+function displayItemsList() {
+  sortButton.innerHTML = `<span tabindex="0" aria-selected="true" role="listbox" aria-label="Trier par ${itemsList[0]}" aria-labelledby="Trier par ${itemsList[0]}">${itemsList[0]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsList[1]}" aria-labelledby="Trier par ${itemsList[1]}">${itemsList[1]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsList[2]}" aria-labelledby="Trier par ${itemsList[2]}">${itemsList[2]}</span>`;
+}
+
+function toggleSortList(evt) {
+  if (isSortOpen === false) {
+    evt.preventDefault();
+    openSort();
   } else {
-    options.forEach((option) => {
-      option.style.display = "none";
-      sortSelectElement.style.height = "70px";
-      sortSelectElement.style.padding = "0 0 0 20px";
-    });
-    sortSelectElement.setAttribute("size", "0");
+    displaySelectedItem(evt);
+    closeSort();
   }
+}
+
+function displaySelectedItem(evt) {
+  const selectedItem = evt.target.textContent || itemsList[0];
+
+  itemsList = itemsList.filter((item) => item !== selectedItem);
+  itemsList.unshift(selectedItem);
+  sortButton.setAttribute("aria-activedescendant", selectedItem);
+  displayItemsList();
+}
+
+function openSort() {
+  isSortOpen = true;
+  sortButton.classList.remove("sort-button");
+  sortButton.classList.add("buttonCollapsed");
+  sortButton.setAttribute("aria-expanded", true);
+
+  const sortItems = document.querySelectorAll(".buttonCollapsed span");
+  sortItems.forEach((sortItem) => {
+    sortItem.classList.toggle("itemCollapsed");
+  });
+  sortButton.querySelector("span").focus();
+}
+
+function closeSort() {
+  const sortItemsCollapsed = document.querySelectorAll(".itemCollapsed");
+  sortItemsCollapsed.forEach((sort) => {
+    sort.classList.remove("itemCollapsed");
+  });
+  sortButton.classList.remove("buttonCollapsed");
+  sortButton.classList.add("sort-button");
+  sortButton.setAttribute("aria-expanded", false);
+  isSortOpen = false;
 }

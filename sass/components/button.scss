@@ -8,17 +8,17 @@ button {
   border: none;
   font-size: 1.125em;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background-color: $color-secondary;
-  }
 }
 
 .contact-button {
   @extend button;
   width: 170px;
   height: 35px;
+
+  &:hover,
+  &:focus {
+    background-color: $color-secondary;
+  }
 }
 
 @media screen and (min-width: 1024px) {

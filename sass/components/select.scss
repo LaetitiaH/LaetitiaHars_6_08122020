@@ -8,6 +8,7 @@ label {
 }
 
 select {
+  appearance: none;
   width: 170px;
   height: 70px;
   background-color: $color-primary;
@@ -39,10 +40,69 @@ select {
     font-weight: bold;
     font-size: 1.125em;
     line-height: 1.4375em;
-    z-index: 1;
 
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+.sort {
+  .sort-button {
+    width: 170px;
+    justify-content: space-around;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &::after {
+      content: "\f077";
+      font-family: "Font Awesome 5 Free", sans-serif;
+      font-size: 0.7em;
+      font-weight: 600;
+      color: white;
+    }
+  }
+
+  span {
+    &:last-child,
+    &:nth-child(2n) {
+      display: none;
+    }
+  }
+
+  .buttonCollapsed {
+    width: 170px;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &::after {
+      content: "\f078";
+      font-family: "Font Awesome 5 Free", sans-serif;
+      position: relative;
+      right: -62px;
+      top: -150px;
+      font-size: 0.7em;
+      font-weight: 600;
+      color: white;
+      height: 0;
+    }
+  }
+  .itemCollapsed {
+    display: flex !important;
+    height: calc(170px / 3);
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    padding: 0 10px 0 10px;
+    box-sizing: border-box;
+
+    &:nth-child(2n) {
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
     }
   }
 }
