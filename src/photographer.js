@@ -1,61 +1,67 @@
-// Display Sort
+// Get photographer info and create photographer object
+let photographer;
+const photographerId = +window.location.search.split("=")[1];
 
-let itemsList = ["Popularité", "Date", "Titre"];
-const sortButton = document.querySelector(".sort-button");
-displayItemsList();
+getPhotographersList().then((res) => {
+  const photographersList = res.photographers;
+  const picturesList = res.media;
+  const photographerWithPictures = photographersList
+    .map((photographer) => {
+      const photographerPicture = picturesList.filter(
+        (picture) => picture.photographerId === photographer.id
+      );
+      return { ...photographer, media: photographerPicture };
+    })
+    .find((photographer) => photographer.id === photographerId);
 
-let isSortOpen = false;
-
-sortButton.addEventListener("click", toggleSortList);
-sortButton.addEventListener("keydown", (evt) => {
-  if (evt.key === "Enter") {
-    toggleSortList(evt);
-  }
+  photographer = factory.createPhotographer(photographerWithPictures);
+  displayPhotographerInformations();
+  displayPicturesList();
 });
 
-function displayItemsList() {
-  sortButton.innerHTML = `<span tabindex="0" aria-selected="true" role="listbox" aria-label="Trier par ${itemsList[0]}" aria-labelledby="Trier par ${itemsList[0]}">${itemsList[0]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsList[1]}" aria-labelledby="Trier par ${itemsList[1]}">${itemsList[1]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsList[2]}" aria-labelledby="Trier par ${itemsList[2]}">${itemsList[2]}</span>`;
+function displayPhotographerInformations() {
+  displayProfilPhotographerInformations(photographer);
+  displayPhotoPhotographerInformations(photographer);
+
+  const likesNumber = document.querySelector("#likesNumber");
+  addTextContent(likesNumber, photographer.getTotalLike());
 }
 
-function toggleSortList(evt) {
-  if (isSortOpen === false) {
-    evt.preventDefault();
-    openSort();
+function displayPicturesList() {
+  const template = document.querySelector("#photograph-picture");
+
+  photographer.media.forEach((photographerMedia) => {
+    // initialize template clone of template
+    const template_clone = template.content.cloneNode(true);
+    const media = factory.createMedia(photographerMedia);
+
+    // set DOM foreach pictures
+    displayPicture(template_clone, media);
+  });
+}
+
+function displayPicture(template, media) {
+  let mediaToInsert;
+  if (media.image) {
+    mediaToInsert = `<img class="photographer-picture" src="${media.getImgSrcFormatted()}" alt="${media.getImgName()}" />`;
   } else {
-    displaySelectedItem(evt);
-    closeSort();
+    mediaToInsert = `<video class="photographer-picture" controls>
+    <source src=${media.getVideoSrcFormatted()}
+            type="video/mp4">
+</video>`;
   }
-}
+  const mediaContent = template.querySelector(".media");
+  const mediaTitle = template.querySelector("h2");
+  const mediaPrice = template.querySelector("#picture-price");
+  const mediaLikes = template.querySelector("#picture-likes");
+  // Set attribute and text in clone template
+  addHtmlContent(mediaContent, mediaToInsert);
+  addTextContent(mediaTitle, media.getImgName());
+  addTextContent(mediaPrice, `${media.price} €`);
+  addTextContent(mediaLikes, media.likes);
 
-function displaySelectedItem(evt) {
-  const selectedItem = evt.target.textContent || itemsList[0];
+  // create Dom elements
 
-  itemsList = itemsList.filter((item) => item !== selectedItem);
-  itemsList.unshift(selectedItem);
-  sortButton.setAttribute("aria-activedescendant", selectedItem);
-  displayItemsList();
-}
-
-function openSort() {
-  isSortOpen = true;
-  sortButton.classList.remove("sort-button");
-  sortButton.classList.add("buttonCollapsed");
-  sortButton.setAttribute("aria-expanded", true);
-
-  const sortItems = document.querySelectorAll(".buttonCollapsed span");
-  sortItems.forEach((sortItem) => {
-    sortItem.classList.toggle("itemCollapsed");
-  });
-  sortButton.querySelector("span").focus();
-}
-
-function closeSort() {
-  const sortItemsCollapsed = document.querySelectorAll(".itemCollapsed");
-  sortItemsCollapsed.forEach((sort) => {
-    sort.classList.remove("itemCollapsed");
-  });
-  sortButton.classList.remove("buttonCollapsed");
-  sortButton.classList.add("sort-button");
-  sortButton.setAttribute("aria-expanded", false);
-  isSortOpen = false;
+  const picturesList = document.querySelector(".profil-pictures-list");
+  picturesList.appendChild(template);
 }

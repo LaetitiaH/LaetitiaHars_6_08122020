@@ -20,7 +20,7 @@
       <header>
         <section class="photographer-informations">
           <div class="photographer-title">
-            <h1 class="profil-title">Mimi Keel</h1>
+            <h1 class="profil-title"></h1>
             <button
               aria-label="Contactez-moi"
               class="contact-button photographer-title__contact-button"
@@ -30,36 +30,23 @@
           </div>
 
           <div>
-            <p class="localization">London</p>
-            <p class="quote quote--grey">10000</p>
+            <p class="localization"></p>
+            <p class="quote quote--grey"></p>
           </div>
           <nav
             role="navigation"
             aria-label="NAME personal categories"
-            class="photographer-tag tag"
+            class="tag"
           >
-            <ul aria-label="NAME personal categories">
-              <li class="tag-name" aria-label="NAME1 tag">tag 1erh</li>
-              <li class="tag-name" aria-label="NAME2 tag">tag 1er</li>
-              <li class="tag-name" aria-label="NAME3 tag">tag 1erh</li>
-              <li class="tag-name" aria-label="NAME4 tag">tag 1erh</li>
-            </ul>
+            <ul class="photographer-tag" aria-label=""></ul>
           </nav>
         </section>
 
         <section aria-label="NAME photo" class="profil-photo--small">
-          <img
-            class="profil-photo_small"
-            src="assets/pictures/photographers-photos/MimiKeel.jpg"
-            alt=""
-          />
+          <img class="profil-photo_small" src="#" alt="" />
         </section>
         <section class="profil-photo--big">
-          <img
-            class="profil-photo_big"
-            src="assets/pictures/photographers-photos/MimiKeel.jpg"
-            alt=""
-          />
+          <img class="profil-photo_big" src="#" alt="" />
         </section>
       </header>
       <section class="sort">
@@ -74,134 +61,7 @@
         ></button>
       </section>
 
-      <div class="profil-pictures-list">
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-        <article class="profil-pictures-list__picture">
-          <img
-            class="photographer-picture"
-            src="assets/pictures/Mimi/Animals_Rainbow.jpg"
-            alt="Animals Rainbow"
-          />
-          <section class="profil-pictures-list__description">
-            <h2>Marriage à la mer</h2>
-            <div>
-              <p>70 €</p>
-              <p>
-                12
-                <img
-                  class="heart"
-                  src="assets/icons/heart-red.png"
-                  alt="likes"
-                />
-              </p>
-            </div>
-          </section>
-        </article>
-      </div>
+      <div class="profil-pictures-list"></div>
 
       <button
         aria-label="Contactez-moi"
@@ -211,9 +71,34 @@
       </button>
     </main>
     <aside>
-      <p>325 676 <img src="assets/icons/heart-black.png" alt="likes" /></p>
-      <p>300€ / jour</p>
+      <p>
+        <span id="likesNumber"></span
+        ><img src="assets/icons/heart-black.png" alt="likes" />
+      </p>
+      <p id="price"></p>
     </aside>
+
+    <script src="src/helper.js"></script>
+    <script src="src/factory.js"></script>
+    <script src="src/service.js"></script>
+    <script src="src/sort-button.js"></script>
     <script src="src/photographer.js"></script>
   </body>
+
+  <template id="photograph-picture">
+    <article class="profil-pictures-list__picture">
+      <div class="media"></div>
+      <section class="profil-pictures-list__description">
+        <h2></h2>
+        <div>
+          <p id="picture-price"></p>
+          <p>
+            <span id="picture-likes"></span>
+
+            <img class="heart" src="assets/icons/heart-red.png" alt="likes" />
+          </p>
+        </div>
+      </section>
+    </article>
+  </template>
 </html>

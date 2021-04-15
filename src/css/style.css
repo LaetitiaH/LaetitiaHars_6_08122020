@@ -380,6 +380,9 @@ aside {
     border-top-right-radius: 5px;
     font-size: 1.5em;
   }
+  aside #likesNumber {
+    margin-right: 5px;
+  }
   aside .heart {
     width: 18px;
     height: 18px;
@@ -497,6 +500,10 @@ main .contact-button_fixed {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+}
+main .media {
+  height: 100%;
+  width: 100%;
 }
 
 @media screen and (min-width: 1024px) {
