@@ -30,6 +30,20 @@ function Factory() {
         return acc + picture.likes;
       }, 0);
     }
+
+    sortMediaByTitle() {
+      return this.media.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    }
+
+    sortMediaByDate() {
+      return this.media.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+
+    sortMediaByLikes() {
+      return this.media.sort((a, b) => b.likes - a.likes);
+    }
   }
 
   class Media {
@@ -43,12 +57,6 @@ function Factory() {
 
     getVideoSrcFormatted() {
       return `assets/pictures/${this.photographerId}/${this.video}`;
-    }
-
-    getImgName() {
-      return this.image
-        ? this.image.split(".")[0].replaceAll("_", " ")
-        : this.video.split(".")[0].replaceAll("_", " ");
     }
   }
 }

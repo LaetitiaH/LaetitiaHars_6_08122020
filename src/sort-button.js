@@ -32,10 +32,13 @@ function toggleSortList(evt) {
 function displaySelectedItem(evt) {
   const selectedItem = evt.target.textContent || itemsSortList[0];
 
+  displayPhotographerMediaByFilter(selectedItem);
+
   itemsSortList = itemsSortList.filter((item) => item !== selectedItem);
   itemsSortList.unshift(selectedItem);
 
   addAttribute(sortButton, "aria-activedescendant", selectedItem);
+
   displayItemsList();
 }
 
@@ -65,4 +68,24 @@ function closeSort() {
   addClass(sortButton, "sort-button");
   addAttribute(sortButton, "aria-expanded", false);
   isSortOpen = false;
+}
+
+function displayPhotographerMediaByFilter(selectedItem) {
+  if (selectedItem === "Popularité") {
+    photographer.sortMediaByLikes();
+  } else if (selectedItem === "Date") {
+    photographer.sortMediaByDate();
+  } else {
+    photographer.sortMediaByTitle();
+  }
+
+  // remove all articles html code
+  const picturesList = document.querySelector(".profil-pictures-list");
+  picturesList.childNodes.forEach((child) => {
+    if (child.localName === "article") {
+      child.remove();
+    }
+  });
+
+  displayPicturesList();
 }

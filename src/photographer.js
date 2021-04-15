@@ -36,8 +36,10 @@ function displayPicturesList() {
 
 function displayPicture(template, media) {
   let mediaToInsert;
-  if (media.image) {
-    mediaToInsert = `<img class="photographer-picture" src="${media.getImgSrcFormatted()}" alt="${media.getImgName()}" />`;
+  if (media.type === "img") {
+    mediaToInsert = `<img class="photographer-picture" src="${media.getImgSrcFormatted()}" alt="${
+      media.name
+    }" />`;
   } else {
     mediaToInsert = `<video class="photographer-picture" controls>
     <source src=${media.getVideoSrcFormatted()}
@@ -50,7 +52,7 @@ function displayPicture(template, media) {
   const mediaLikes = template.querySelector("#picture-likes");
   // Set attribute and text in clone template
   addHtmlContent(mediaContent, mediaToInsert);
-  addTextContent(mediaTitle, media.getImgName());
+  addTextContent(mediaTitle, media.name);
   addTextContent(mediaPrice, `${media.price} €`);
   addTextContent(mediaLikes, media.likes);
 

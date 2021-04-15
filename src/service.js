@@ -17,9 +17,17 @@ function getPhotographersListWithMedia() {
     const photographersList = res.photographers;
     const picturesList = res.media;
     return photographersList.map((photographer) => {
-      const photographerPicture = picturesList.filter(
-        (picture) => picture.photographerId === photographer.id
-      );
+      const photographerPicture = picturesList
+        .filter((picture) => picture.photographerId === photographer.id)
+        .map((media) => {
+          return {
+            ...media,
+            type: media.image ? "img" : "mp4",
+            name: media.image
+              ? media.image.split(".")[0].replaceAll("_", " ")
+              : media.video.split(".")[0].replaceAll("_", " "),
+          };
+        });
       return { ...photographer, media: photographerPicture };
     });
   });
