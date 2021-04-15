@@ -2,26 +2,20 @@
 let photographer;
 const photographerId = +window.location.search.split("=")[1];
 
-getPhotographersList().then((res) => {
-  const photographersList = res.photographers;
-  const picturesList = res.media;
-  const photographerWithPictures = photographersList
-    .map((photographer) => {
-      const photographerPicture = picturesList.filter(
-        (picture) => picture.photographerId === photographer.id
-      );
-      return { ...photographer, media: photographerPicture };
-    })
-    .find((photographer) => photographer.id === photographerId);
+getPhotographersListWithMedia().then((photographersList) => {
+  const photographerToDisplay = photographersList.find(
+    (photographer) => photographer.id === photographerId
+  );
 
-  photographer = factory.createPhotographer(photographerWithPictures);
+  photographer = factory.createPhotographer(photographerToDisplay);
   displayPhotographerInformations();
   displayPicturesList();
 });
 
 function displayPhotographerInformations() {
-  displayProfilPhotographerInformations(photographer);
-  displayPhotoPhotographerInformations(photographer);
+  displayProfilPhotographerInformations(document, photographer);
+  displayBigPhotoPhotographerInformations(document, photographer);
+  displaySmallPhotoPhotographerInformations(document, photographer);
 
   const likesNumber = document.querySelector("#likesNumber");
   addTextContent(likesNumber, photographer.getTotalLike());

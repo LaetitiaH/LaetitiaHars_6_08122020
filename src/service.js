@@ -11,3 +11,16 @@ function getPhotographersList() {
       this.dataError = true;
     });
 }
+
+function getPhotographersListWithMedia() {
+  return getPhotographersList().then((res) => {
+    const photographersList = res.photographers;
+    const picturesList = res.media;
+    return photographersList.map((photographer) => {
+      const photographerPicture = picturesList.filter(
+        (picture) => picture.photographerId === photographer.id
+      );
+      return { ...photographer, media: photographerPicture };
+    });
+  });
+}

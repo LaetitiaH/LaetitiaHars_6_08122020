@@ -2,6 +2,10 @@ function addAttribute(selecteur, attribute, value) {
   selecteur.setAttribute(attribute, value);
 }
 
+function removeAttribute(selecteur, attribute) {
+  selecteur.removeAttribute(attribute);
+}
+
 function addTextContent(selecteur, value) {
   selecteur.textContent = value;
 }
@@ -22,13 +26,13 @@ function toggleClass(selecteur, value) {
   selecteur.classList.toggle(value);
 }
 
-function displayProfilPhotographerInformations(value) {
-  const profilTitle = document.querySelector(".profil-title");
-  const profilLocalization = document.querySelector(".localization");
-  const profilQuote = document.querySelector(".quote");
-  const profilPrice = document.querySelector("#price");
-  const profilTag = document.querySelector(".photographer-tag");
-  const profilTagsList = document.querySelector("ul");
+function displayProfilPhotographerInformations(element, value) {
+  const profilTitle = element.querySelector(".profil-title");
+  const profilLocalization = element.querySelector(".localization");
+  const profilQuote = element.querySelector(".quote");
+  const profilPrice = element.querySelector("#price");
+  const profilTag = element.querySelector(".photographer-tag");
+  const profilTagsList = element.querySelector("ul");
 
   addTextContent(profilTitle, value.name);
   addTextContent(profilLocalization, value.getFormattedLocalization());
@@ -45,16 +49,19 @@ function displayProfilPhotographerInformations(value) {
     .replace(/,/g, "");
 
   addHtmlContent(profilTagsList, tagsList);
-
   addTextContent(profilPrice, `${value.price}€ / jour`);
 }
 
-function displayPhotoPhotographerInformations(value) {
-  const profilPhotoBig = document.querySelector(".profil-photo_big");
-  const profilPhotoSmall = document.querySelector(".profil-photo_small");
+function displayBigPhotoPhotographerInformations(element, value) {
+  const profilPhotoBig = element.querySelector(".profil-photo_big");
 
   addAttribute(profilPhotoBig, "src", value.getFormattedImg());
-  addAttribute(profilPhotoSmall, "src", value.getFormattedImg());
   addAttribute(profilPhotoBig, "alt", `${value.name} photo`);
+}
+
+function displaySmallPhotoPhotographerInformations(element, value) {
+  const profilPhotoSmall = element.querySelector(".profil-photo_small");
+
+  addAttribute(profilPhotoSmall, "src", value.getFormattedImg());
   addAttribute(profilPhotoSmall, "alt", `${value.name} photo`);
 }

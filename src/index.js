@@ -3,9 +3,13 @@ let photographers;
 let initialPhotographers;
 let filtersList;
 
+// DOM
+const mainContent = document.querySelector(".main-content");
+
 // Get photographers list form localhost and launch displayPhotographer and initFilterListener
-getPhotographersList().then((res) => {
-  initialPhotographers = res.photographers;
+getPhotographersListWithMedia().then((photographersList) => {
+  initialPhotographers = photographersList;
+
   photographers = initialPhotographers;
   filtersList = Array.from(
     new Set(
@@ -19,154 +23,39 @@ getPhotographersList().then((res) => {
   displayFiltersList();
   displayPhotographersList();
 });
-// DOM
-const mainContent = document.querySelector(".main-content");
-
-// Get list of photographers and set initialPhotographers and photographers
-function getPhotographersList() {
-  return fetch("assets/json/photographers.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("HTTP error " + response.status);
-      }
-      return response.json();
-    })
-    .catch(function () {
-      this.dataError = true;
-    });
-}
-
-// Display Filters list
-
-function displayFiltersList() {
-  document.querySelector("#filtersList").innerHTML = filtersList
-    .map(
-      (filter) =>
-        `<li class="tag-name" data-checked="false"><a href="#" aria-label="${filter} tag">#${filter}</a></li>`
-    )
-    .toString()
-    .replace(/,/g, "");
-}
 
 // Display Photographers list
 function displayPhotographersList() {
   const template = document.querySelector("#photograph");
 
-  photographers.forEach(
-    ({ city, country, id, name, portrait, price, tagline, tags }) => {
-      // initialize template clone of template
-      const template_clone = template.content.cloneNode(true);
+  photographers.forEach((photographerInfo) => {
+    // initialize template clone of template
+    const template_clone = template.content.cloneNode(true);
+    const photographerInformations = factory.createPhotographer(
+      photographerInfo
+    );
 
-      // set DOM foreach photographer
-      setPhotographersInformations(
-        template_clone,
-        id,
-        name,
-        city,
-        country,
-        price,
-        tagline,
-        tags
-      );
-    }
-  );
-
-  // init Filter CLick Listeners
-  initFilterClickListener();
-}
-
-function initFilterClickListener() {
-  const tagFilters = document.querySelectorAll(".tag-name");
-  tagFilters.forEach((tag) => {
-    tag.addEventListener("click", filterPhotographersList);
+    // set DOM foreach photographer
+    setPhotographersInformations(template_clone, photographerInformations);
   });
 }
 
-function setPhotographersInformations(
-  template,
-  id,
-  name,
-  city,
-  country,
-  price,
-  tagline,
-  tags
-) {
-  const srcImg = `assets/pictures/photographers-photos/${name.replace(
-    /-|[" "]/g,
-    ""
-  )}.jpg`;
-
-  const tagsList = tags
-    .map(
-      (tag) =>
-        `<li aria-label="${tag} tag"><span aria-label="${tag}">#${tag}</span></li>`
-    )
-    .toString()
-    .replace(/,/g, "");
-
-  // Set attribute and text in clone template
-  template.querySelector("a").setAttribute("aria-label", name);
-  template
-    .querySelector("a")
-    .setAttribute("href", `photographer-page.html?id=${id}`);
-  template.querySelector(".profil-photo_big").setAttribute("src", srcImg);
-  template
-    .querySelector(".profil-photo_big")
-    .setAttribute("alt", `${name} photo`);
-  template.querySelector(".profil-title").textContent = name;
-  template.querySelector(".localization").textContent = `${city}, ${country}`;
-  template.querySelector(".quote").textContent = tagline;
-  template.querySelector(".price").textContent = `${price}€/jour`;
-  template
-    .querySelector(".photographer-tag")
-    .setAttribute("aria-label", `${name} personal categories`);
-  template.querySelector("ul").innerHTML = tagsList;
+function setPhotographersInformations(template, photographerInformations) {
+  addPhotographerPageLink(template, photographerInformations);
+  displayProfilPhotographerInformations(template, photographerInformations);
+  displayBigPhotoPhotographerInformations(template, photographerInformations);
 
   // create Dom elements
   mainContent.appendChild(template);
 }
 
-// Filter list of photographers with selected tag
-function filterPhotographersList(tag) {
-  const allTagFilters = document.querySelectorAll(".tag-name");
+function addPhotographerPageLink(template, photographerInformations) {
+  const photographerLink = template.querySelector("a");
 
-  // set attributes to identified selected tag
-  const tagFilterState = tag.currentTarget.dataset.checked;
-  if (tagFilterState === "true") {
-    tag.currentTarget.setAttribute("data-checked", "false");
-    tag.currentTarget.removeAttribute("ariaCurrent");
-  } else {
-    tag.currentTarget.setAttribute("data-checked", "true");
-    tag.currentTarget.setAttribute("ariaCurrent", "page");
-  }
-
-  // set array with all selected filters
-  let tagsfilter = [];
-  allTagFilters.forEach((tagFilter) => {
-    if (tagFilter.dataset.checked === "true") {
-      tagsfilter.push(tagFilter.innerText.replace("#", "").toLowerCase());
-    }
-  });
-
-  // filter photographers array with selected tag
-  if (tagsfilter.length) {
-    photographers = initialPhotographers.filter((photographer) =>
-      photographer.tags.find((tag) =>
-        tagsfilter.find((tagFilter) => tagFilter === tag)
-      )
-    );
-  } else {
-    photographers = initialPhotographers;
-  }
-
-  // remove all articles html code
-  mainContent.childNodes.forEach((child) => {
-    if (child.localName === "article") {
-      child.remove();
-    }
-  });
-
-  // launch displayPhotographersList to display filtered photographers list
-  displayPhotographersList();
+  addAttribute(photographerLink, "aria-label", photographerInformations.name);
+  addAttribute(
+    photographerLink,
+    "href",
+    `photographer-page.html?id=${photographerInformations.id}`
+  );
 }
