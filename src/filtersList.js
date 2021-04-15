@@ -1,5 +1,4 @@
 let tagsfilter = [];
-
 // Display Filters list
 
 function displayFiltersList() {
@@ -82,4 +81,5 @@ function filterPhotographersWithSelectedTags() {
   } else {
     photographers = initialPhotographers;
   }
+  tagsfilter = [];
 }
