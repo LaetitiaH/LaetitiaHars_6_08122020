@@ -492,6 +492,9 @@ main .contact-button_fixed {
   left: 50%;
   transform: translateX(-50%);
 }
+main .media {
+  width: 100%;
+}
 
 @media screen and (min-width: 1024px) {
   main header {
