@@ -10,6 +10,18 @@ button {
   cursor: pointer;
 }
 
+.modalButton {
+  &:before {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 600;
+    color: $color-primary;
+    font-size: 1em;
+    background-color: unset;
+  }
+  background-color: unset;
+  border: none;
+}
+
 .contact-button {
   @extend button;
   width: 170px;
@@ -21,10 +33,43 @@ button {
   }
 }
 
+.modal-close-button {
+  @extend .modalButton;
+  &:before {
+    content: "\f00d";
+  }
+}
+
+.previous-media-button {
+  @extend .modalButton;
+  &:before {
+    content: "\f053";
+  }
+
+  padding: 0;
+}
+
+.next-media-button {
+  @extend .modalButton;
+  &:before {
+    content: "\f054";
+  }
+
+  padding: 0;
+}
+
 @media screen and (min-width: 1024px) {
   .contact-button {
     height: 70px;
     font-size: 1.25em;
     font-weight: 700;
+  }
+
+  .modal-close-button,
+  .next-media-button,
+  .previous-media-button {
+    &:before {
+      font-size: 2em;
+    }
   }
 }

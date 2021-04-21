@@ -7,46 +7,6 @@ label {
   vertical-align: top;
 }
 
-select {
-  appearance: none;
-  width: 170px;
-  height: 70px;
-  background-color: $color-primary;
-  color: white;
-  font-weight: bold;
-  font-size: 1.125em;
-  line-height: 1.4375em;
-  border-radius: 5px;
-  overflow: hidden !important;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
-  padding-left: 20px;
-
-  &::after {
-    content: "\f077";
-    font-family: "Font Awesome 5 Free", sans-serif;
-    position: relative;
-    right: -145px;
-    top: -158px;
-    font-size: 0.6em;
-  }
-
-  option {
-    display: none;
-    height: calc(170px / 3);
-    margin: 0 10px 0 10px;
-    align-items: center;
-    border-bottom: 1px solid white;
-    font-weight: bold;
-    font-size: 1.125em;
-    line-height: 1.4375em;
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
-
 .sort {
   .sort-button {
     width: 170px;
@@ -55,6 +15,15 @@ select {
     padding: 0;
     margin: 0;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    background-color: $color-primary;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.125em;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
 
     &::after {
       content: "\f077";
@@ -65,7 +34,7 @@ select {
     }
   }
 
-  span {
+  .sort-item-list {
     &:last-child,
     &:nth-child(2n) {
       display: none;
@@ -73,11 +42,21 @@ select {
   }
 
   .buttonCollapsed {
+    display: flex;
     width: 170px;
+    height: 170px;
     flex-direction: column;
     padding: 0;
     margin: 0;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    background-color: $color-primary;
+    color: white;
+    border-radius: 5px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.125em;
+    font-weight: 700;
 
     &::after {
       content: "\f078";

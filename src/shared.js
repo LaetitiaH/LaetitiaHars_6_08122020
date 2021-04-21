@@ -30,7 +30,8 @@ function displayProfilPhotographerInformations(element, value) {
   const profilTitle = element.querySelector(".profil-title");
   const profilLocalization = element.querySelector(".localization");
   const profilQuote = element.querySelector(".quote");
-  const profilPrice = element.querySelector("#price");
+  const profilPrice =
+    element.querySelector("#price") || element.querySelector(".price");
   const profilTag = element.querySelector(".photographer-tag");
   const profilTagsList = element.querySelector("ul");
 

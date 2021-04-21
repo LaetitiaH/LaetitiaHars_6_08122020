@@ -10,13 +10,13 @@
     />
     <title>Page photographe</title>
   </head>
-  <body>
+  <body class="body">
     <header class="photographer-header" role="banner">
       <a aria-label="Fisheye" href="index.html">
         <img src="assets/logo/logo.svg" alt="Fisheye Home page" />
       </a>
     </header>
-    <main>
+    <main aria-hidden="false">
       <header>
         <section class="photographer-informations">
           <div class="photographer-title">
@@ -45,14 +45,14 @@
       </header>
       <section class="sort">
         <label aria-label="Trier par">Trier par </label>
-        <button
-          type="button"
+        <ul
           id="Trier par"
-          role="button"
+          role="listbox"
           aria-haspopup="listbox"
           aria-expanded="false"
+          aria-label="Trier par"
           class="sort-button"
-        ></button>
+        ></ul>
       </section>
 
       <div class="profil-pictures-list"></div>
@@ -72,22 +72,60 @@
       <p id="price"></p>
     </aside>
 
+    <!--Modal Pictures-->
+    <div
+      class="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-describedby="titre"
+      aria-label="image vue agrandie"
+    >
+      <button
+        type="button"
+        aria-label="Fermer la vue agrandie"
+        class="modal-close-button"
+      ></button>
+      <button
+        aria-label="Média précédent"
+        type="button"
+        class="previous-media-button"
+      >
+        <span class="sr-only">Précédent</span>
+      </button>
+      <section
+        class="modal-content"
+        aria-label="Liste des médias du photographe"
+      >
+        <div class="media"></div>
+        <h1 id="titre" class="modal-title"></h1>
+      </section>
+      <button
+        aria-label="Média suivant"
+        type="button"
+        class="next-media-button"
+      >
+        <span class="sr-only">Suivant</span>
+      </button>
+    </div>
+    <!--Modal Pictures-->
+
     <script src="src/shared.js"></script>
     <script src="src/factory.js"></script>
     <script src="src/service.js"></script>
     <script src="src/sort-button.js"></script>
     <script src="src/photographer.js"></script>
+    <script src="src/modal.js"></script>
   </body>
 
   <template id="photograph-picture">
     <article class="profil-pictures-list__picture">
-      <div class="media"></div>
+      <button type="button" class="media"></button>
       <section class="profil-pictures-list__description">
         <h2></h2>
         <div>
-          <p id="picture-price"></p>
+          <p class="picture-price"></p>
           <p>
-            <span id="picture-likes"></span>
+            <span class="picture-likes"></span>
 
             <img class="heart" src="assets/icons/heart-red.png" alt="likes" />
           </p>

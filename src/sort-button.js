@@ -15,7 +15,7 @@ sortButton.addEventListener("keydown", (evt) => {
 function displayItemsList() {
   addHtmlContent(
     sortButton,
-    `<span tabindex="0" aria-selected="true" role="listbox" aria-label="Trier par ${itemsSortList[0]}" aria-labelledby="Trier par ${itemsSortList[0]}">${itemsSortList[0]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsSortList[1]}" aria-labelledby="Trier par ${itemsSortList[1]}">${itemsSortList[1]}</span><span tabindex="0" role="listbox" aria-label="Trier par ${itemsSortList[2]}" aria-labelledby="Trier par ${itemsSortList[2]}">${itemsSortList[2]}</span>`
+    `<li class="sort-item-list" tabindex="0" role="option" aria-label="Trier par ${itemsSortList[0]}">${itemsSortList[0]}</li><li class="sort-item-list" tabindex="0" role="option" aria-label="Trier par ${itemsSortList[1]}">${itemsSortList[1]}</li><li class="sort-item-list" tabindex="0" role="option" aria-label="Trier par ${itemsSortList[2]}">${itemsSortList[2]}</li>`
   );
 }
 
@@ -48,13 +48,15 @@ function openSort() {
   addClass(sortButton, "buttonCollapsed");
   addAttribute(sortButton, "aria-expanded", true);
 
-  const sortItems = document.querySelectorAll(".buttonCollapsed span");
+  const sortItems = document.querySelectorAll(
+    ".buttonCollapsed .sort-item-list"
+  );
 
   sortItems.forEach((sortItem) => {
     toggleClass(sortItem, "itemCollapsed");
   });
 
-  const sortButtonItems = sortButton.querySelector("span");
+  const sortButtonItems = sortButton.querySelector(".sort-item-list");
   sortButtonItems.focus();
 }
 

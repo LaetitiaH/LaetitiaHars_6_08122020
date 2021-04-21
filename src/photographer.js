@@ -48,16 +48,22 @@ function displayPicture(template, media) {
   }
   const mediaContent = template.querySelector(".media");
   const mediaTitle = template.querySelector("h2");
-  const mediaPrice = template.querySelector("#picture-price");
-  const mediaLikes = template.querySelector("#picture-likes");
+  const mediaPrice = template.querySelector(".picture-price");
+  const mediaLikes = template.querySelector(".picture-likes");
   // Set attribute and text in clone template
   addHtmlContent(mediaContent, mediaToInsert);
   addTextContent(mediaTitle, media.name);
   addTextContent(mediaPrice, `${media.price} €`);
   addTextContent(mediaLikes, media.likes);
+  addAttribute(mediaContent, "aria-label", media.name);
+  addAttribute(mediaContent, "data-media-Id", media.id);
 
   // create Dom elements
 
   const picturesList = document.querySelector(".profil-pictures-list");
   picturesList.appendChild(template);
+
+  const mediaContentAll = document.querySelectorAll(".media");
+
+  initMediaModalListenerCLick(mediaContentAll, photographer);
 }

@@ -53,6 +53,8 @@ main {
 
   .media {
     width: 100%;
+    background-color: unset;
+    padding: 0;
   }
 }
 
@@ -63,7 +65,6 @@ main {
       border-radius: 5px;
 
       section {
-        //width: 100%;
         margin-bottom: 0;
 
         .photographer-title {
@@ -77,12 +78,12 @@ main {
 
     .sort {
       display: flex;
-      position: relative;
-      z-index: 1000000;
+      position: absolute;
+      z-index: 10;
     }
 
     .profil-pictures-list {
-      margin-top: 0;
+      margin-top: 100px;
     }
 
     .profil-photo--big {

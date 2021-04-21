@@ -13,6 +13,7 @@
     font-size: 0.9em;
     line-height: 1.125em;
     color: $color-primary;
+    text-transform: capitalize;
   }
 
   .profil-pictures-list__description {
@@ -47,11 +48,7 @@
   .profil-pictures-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 0 95px;
-    position: absolute;
-    top: 565px;
-    padding-right: 90px;
 
     .profil-pictures-list__picture {
       h2 {
