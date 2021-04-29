@@ -90,4 +90,5 @@ function displayPhotographerMediaByFilter(selectedItem) {
   });
 
   displayPicturesList();
+  initLikesListenerClick();
 }
