@@ -447,7 +447,7 @@ aside {
   color: black;
 }
 
-.modal {
+.media-modal {
   display: none;
   background-color: white;
   z-index: 15;
@@ -460,36 +460,36 @@ aside {
   align-items: center;
   position: fixed;
 }
-.modal .modal-close-button {
+.media-modal .modal-close-button {
   position: absolute;
   right: 0;
   top: 0;
 }
-.modal .previous-media-button {
+.media-modal .previous-media-button {
   height: min-content;
   width: min-content;
 }
-.modal .next-media-button {
+.media-modal .next-media-button {
   height: min-content;
   width: min-content;
 }
-.modal .modal-content {
+.media-modal .modal-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.modal .modal-content .media {
+.media-modal .modal-content .media {
   height: 250px;
   width: 290px;
 }
-.modal .modal-content .media img,
-.modal .modal-content .media video {
+.media-modal .modal-content .media img,
+.media-modal .modal-content .media video {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
-.modal .modal-content h1 {
+.media-modal .modal-content h1 {
   font-size: 0.8em;
   line-height: 1.12em;
   color: #901c1c;
@@ -498,28 +498,28 @@ aside {
 }
 
 @media screen and (min-width: 1024px) {
-  .modal .modal-close-button {
+  .media-modal .modal-close-button {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .modal .previous-media-button {
+  .media-modal .previous-media-button {
     left: 9%;
   }
-  .modal .next-media-button {
+  .media-modal .next-media-button {
     right: 9%;
   }
-  .modal .modal-content .media {
+  .media-modal .modal-content .media {
     height: 850px;
     width: 1050px;
     box-sizing: border-box;
     padding-top: 40px;
   }
-  .modal .modal-content .media img,
-.modal .modal-content .media video {
+  .media-modal .modal-content .media img,
+.media-modal .modal-content .media video {
     object-fit: initial;
   }
-  .modal .modal-content h1 {
+  .media-modal .modal-content h1 {
     font-size: 1.5em;
     line-height: 1.9em;
   }

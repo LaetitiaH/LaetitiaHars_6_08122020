@@ -2,7 +2,7 @@
 
 const body = document.querySelector("body");
 const mainContent = document.querySelector("main");
-const modal = document.querySelector(".modal");
+const mediaModal = document.querySelector(".media-modal");
 const closeButton = document.querySelector(".modal-close-button");
 const nextButton = document.querySelector(".next-media-button");
 const previousButton = document.querySelector(".previous-media-button");
@@ -48,10 +48,10 @@ previousButton.addEventListener("click", () => {
 
 // Init listener on press arrow right or left on media modal
 document.addEventListener("keydown", (evt) => {
-  if (evt.key === "ArrowRight" && modal.ariaHidden === "false") {
+  if (evt.key === "ArrowRight" && mediaModal.ariaHidden === "false") {
     displayNextMedia();
   }
-  if (evt.key === "ArrowLeft" && modal.ariaHidden === "false") {
+  if (evt.key === "ArrowLeft" && mediaModal.ariaHidden === "false") {
     displayPreviousMedia();
   }
 });
@@ -69,12 +69,12 @@ function onOpenModal(selectedElement) {
   displayMediaTitle(mediaSelectedWithInfo);
   displayMedia(mediaSelectedWithInfo);
 
-  modal.style.display = "flex";
+  mediaModal.style.display = "flex";
 }
 
 // Close modal
 function onCLoseModal() {
-  modal.style.display = "none";
+  mediaModal.style.display = "none";
   removeAccessibilityAttributes();
 }
 
@@ -115,7 +115,7 @@ function displayPreviousMedia() {
 function displayAccessibilityAttributes() {
   addAttribute(currentMediaDisplayed, "data-checked", "true");
   addAttribute(mainContent, "aria-hidden", "true");
-  addAttribute(modal, "aria-hidden", "false");
+  addAttribute(mediaModal, "aria-hidden", "false");
   addClass(body, "no-scroll");
   removeClass(body, "body");
   closeButton.focus();
@@ -123,7 +123,7 @@ function displayAccessibilityAttributes() {
 
 function removeAccessibilityAttributes() {
   addAttribute(mainContent, "aria-hidden", "false");
-  addAttribute(modal, "aria-hidden", "true");
+  addAttribute(mediaModal, "aria-hidden", "true");
   removeClass(body, "no-scroll");
   addClass(body, "body");
   addAttribute(currentMediaDisplayed, "data-checked", "false");

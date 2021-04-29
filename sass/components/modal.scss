@@ -1,4 +1,4 @@
-.modal {
+.media-modal {
   display: none;
   background-color: white;
   z-index: 15;
@@ -56,7 +56,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .modal {
+  .media-modal {
     .modal-close-button {
       position: absolute;
       right: 0;
