@@ -66,3 +66,8 @@ function displaySmallPhotoPhotographerInformations(element, value) {
   addAttribute(profilPhotoSmall, "src", value.getFormattedImg());
   addAttribute(profilPhotoSmall, "alt", `${value.name} photo`);
 }
+
+function displayLikesNumber() {
+  const likesNumber = document.querySelector("#likesNumber");
+  addTextContent(likesNumber, photographer.getTotalLike());
+}

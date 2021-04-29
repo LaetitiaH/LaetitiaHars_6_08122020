@@ -58,6 +58,12 @@ button {
   padding: 0;
 }
 
+.heart-button {
+  @extend button;
+  background-color: unset;
+  padding: 0;
+}
+
 @media screen and (min-width: 1024px) {
   .contact-button {
     height: 70px;

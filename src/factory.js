@@ -31,6 +31,10 @@ function Factory() {
       }, 0);
     }
 
+    addLike(selectedMedia) {
+      selectedMedia.likes = selectedMedia.likes + 1;
+    }
+
     sortMediaByTitle() {
       return this.media.sort((a, b) => {
         return a.name.localeCompare(b.name);

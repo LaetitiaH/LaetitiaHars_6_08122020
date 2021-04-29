@@ -185,6 +185,7 @@ main header {
   line-height: 1.125em;
   color: #901c1c;
   text-transform: capitalize;
+  flex: 1;
 }
 .profil-pictures-list__picture .profil-pictures-list__description {
   display: flex;
@@ -195,15 +196,23 @@ main header {
 }
 .profil-pictures-list__picture .profil-pictures-list__description div {
   display: flex;
+  justify-content: flex-end;
+  flex: 1;
   align-items: center;
   color: #901c1c;
   font-size: 0.9em;
   line-height: 1.125em;
 }
+.profil-pictures-list__picture .profil-pictures-list__description div p {
+  font-size: 0.9em;
+}
 .profil-pictures-list__picture .profil-pictures-list__description div p:first-child {
   font-size: 0.9em;
   line-height: 1.125em;
   margin-right: 10px;
+}
+.profil-pictures-list__picture .profil-pictures-list__description div p:nth-child(2n) {
+  display: contents;
 }
 .profil-pictures-list__picture .profil-pictures-list__description div .heart {
   width: 10px;
@@ -243,7 +252,7 @@ main header {
     height: 18px;
   }
 }
-button, .contact-button {
+button, .heart-button, .contact-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -291,6 +300,11 @@ button, .contact-button {
 }
 .next-media-button:before {
   content: "";
+}
+
+.heart-button {
+  background-color: unset;
+  padding: 0;
 }
 
 @media screen and (min-width: 1024px) {

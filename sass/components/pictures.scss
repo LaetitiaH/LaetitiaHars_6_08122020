@@ -14,6 +14,7 @@
     line-height: 1.125em;
     color: $color-primary;
     text-transform: capitalize;
+    flex: 1;
   }
 
   .profil-pictures-list__description {
@@ -25,15 +26,25 @@
 
     div {
       display: flex;
+      justify-content: flex-end;
+      flex: 1;
       align-items: center;
       color: $color-primary;
       font-size: 0.9em;
       line-height: 1.125em;
 
+      p {
+        font-size: 0.9em;
+      }
+
       p:first-child {
         font-size: 0.9em;
         line-height: 1.125em;
         margin-right: 10px;
+      }
+
+      p:nth-child(2n) {
+        display: contents;
       }
 
       .heart {

@@ -10,15 +10,14 @@ getPhotographersListWithMedia().then((photographersList) => {
   photographer = factory.createPhotographer(photographerToDisplay);
   displayPhotographerInformations();
   displayPicturesList();
+  initLikesListenerClick();
 });
 
 function displayPhotographerInformations() {
   displayProfilPhotographerInformations(document, photographer);
   displayBigPhotoPhotographerInformations(document, photographer);
   displaySmallPhotoPhotographerInformations(document, photographer);
-
-  const likesNumber = document.querySelector("#likesNumber");
-  addTextContent(likesNumber, photographer.getTotalLike());
+  displayLikesNumber();
 }
 
 function displayPicturesList() {
@@ -50,11 +49,13 @@ function displayPicture(template, media) {
   const mediaTitle = template.querySelector("h2");
   const mediaPrice = template.querySelector(".picture-price");
   const mediaLikes = template.querySelector(".picture-likes");
+  const likeButton = template.querySelector(".heart-button");
   // Set attribute and text in clone template
   addHtmlContent(mediaContent, mediaToInsert);
   addTextContent(mediaTitle, media.name);
   addTextContent(mediaPrice, `${media.price} €`);
   addTextContent(mediaLikes, media.likes);
+  addAttribute(likeButton, "data-media-Id", media.id);
   addAttribute(mediaContent, "aria-label", media.name);
   addAttribute(mediaContent, "data-media-Id", media.id);
 
