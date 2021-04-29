@@ -40,6 +40,13 @@ button {
   }
 }
 
+.modal-close-button--white {
+  @extend .modal-close-button;
+  &:before {
+    color: white;
+  }
+}
+
 .previous-media-button {
   @extend .modalButton;
   &:before {
@@ -64,6 +71,10 @@ button {
   padding: 0;
 }
 
+.submit-button {
+  @extend .contact-button;
+}
+
 @media screen and (min-width: 1024px) {
   .contact-button {
     height: 70px;
@@ -77,5 +88,9 @@ button {
     &:before {
       font-size: 2em;
     }
+  }
+
+  .submit-button {
+    font-size: 1em;
   }
 }

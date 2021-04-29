@@ -77,7 +77,6 @@
       class="media-modal"
       aria-hidden="true"
       role="dialog"
-      aria-labelledby=""
       aria-label="image vue agrandie"
     >
       <button
@@ -109,6 +108,72 @@
     </div>
     <!--Modal Pictures-->
 
+    <!--Modal Contact-->
+    <div class="modal-background">
+      <div
+        class="contact-modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-label="Formulaire de contact"
+      >
+        <button
+          type="button"
+          aria-label="Fermer le formulaire de contact"
+          class="modal-close-button--white"
+        ></button>
+        <h1>Contactez moi</h1>
+        <h2 id="contact-modal-titre"></h2>
+        <form id="contact" onsubmit="sendForm()" action="javascript:void(0);">
+          <div class="form-input">
+            <label for="firstName">Prénom</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              minlength="2"
+              aria-required="true"
+              required
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="lastName">Nom</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              minlength="2"
+              aria-required="true"
+              required
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              aria-required="true"
+              required
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <div class="submit-button-container">
+            <button aria-label="Envoyer" class="submit-button" type="submit">
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Modal Contact-->
+
     <script src="src/shared.js"></script>
     <script src="src/factory.js"></script>
     <script src="src/service.js"></script>
@@ -116,6 +181,7 @@
     <script src="src/photographer.js"></script>
     <script src="src/like.js"></script>
     <script src="src/media-modal.js"></script>
+    <script src="src/contact-modal.js"></script>
   </body>
 
   <template id="photograph-picture">

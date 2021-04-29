@@ -214,6 +214,9 @@ main header {
 .profil-pictures-list__picture .profil-pictures-list__description div p:nth-child(2n) {
   display: contents;
 }
+.profil-pictures-list__picture .profil-pictures-list__description div .picture-likes {
+  margin-right: 2px;
+}
 .profil-pictures-list__picture .profil-pictures-list__description div .heart {
   width: 10px;
   height: 10px;
@@ -252,7 +255,7 @@ main header {
     height: 18px;
   }
 }
-button, .heart-button, .contact-button {
+button, .heart-button, .contact-button, .submit-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,11 +267,11 @@ button, .heart-button, .contact-button {
   cursor: pointer;
 }
 
-.modalButton, .next-media-button, .previous-media-button, .modal-close-button {
+.modalButton, .next-media-button, .previous-media-button, .modal-close-button, .modal-close-button--white {
   background-color: unset;
   border: none;
 }
-.modalButton:before, .next-media-button:before, .previous-media-button:before, .modal-close-button:before {
+.modalButton:before, .next-media-button:before, .previous-media-button:before, .modal-close-button:before, .modal-close-button--white:before {
   font-family: "Font Awesome 5 Free", sans-serif;
   font-weight: 600;
   color: #901c1c;
@@ -276,16 +279,20 @@ button, .heart-button, .contact-button {
   background-color: unset;
 }
 
-.contact-button {
+.contact-button, .submit-button {
   width: 170px;
   height: 35px;
 }
-.contact-button:hover, .contact-button:focus {
+.contact-button:hover, .submit-button:hover, .contact-button:focus, .submit-button:focus {
   background-color: #d3573c;
 }
 
-.modal-close-button:before {
+.modal-close-button:before, .modal-close-button--white:before {
   content: "";
+}
+
+.modal-close-button--white:before {
+  color: white;
 }
 
 .previous-media-button {
@@ -308,16 +315,20 @@ button, .heart-button, .contact-button {
 }
 
 @media screen and (min-width: 1024px) {
-  .contact-button {
+  .contact-button, .submit-button {
     height: 70px;
     font-size: 1.25em;
     font-weight: 700;
   }
 
-  .modal-close-button:before,
+  .modal-close-button:before, .modal-close-button--white:before,
 .next-media-button:before,
 .previous-media-button:before {
     font-size: 2em;
+  }
+
+  .submit-button {
+    font-size: 1em;
   }
 }
 label {
@@ -411,7 +422,7 @@ aside {
     right: 36px;
     width: 375px;
     height: 70px;
-    background-color: #d3573c;
+    background-color: #db8876;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1.5em;
@@ -460,7 +471,7 @@ aside {
   align-items: center;
   position: fixed;
 }
-.media-modal .modal-close-button {
+.media-modal .modal-close-button, .media-modal .modal-close-button--white {
   position: absolute;
   right: 0;
   top: 0;
@@ -498,7 +509,7 @@ aside {
 }
 
 @media screen and (min-width: 1024px) {
-  .media-modal .modal-close-button {
+  .media-modal .modal-close-button, .media-modal .modal-close-button--white {
     position: absolute;
     right: 0;
     top: 0;
@@ -528,6 +539,106 @@ aside {
   overflow: hidden;
 }
 
+.modal-background {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  z-index: 15;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.contact-modal {
+  display: flex;
+  min-height: 100%;
+  position: relative;
+  width: 100vw;
+  background-color: #db8876;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.contact-modal .modal-close-button, .contact-modal .modal-close-button--white {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.contact-modal h1,
+.contact-modal h2 {
+  font-weight: normal;
+  font-size: 2.25em;
+  line-height: 1.3em;
+  width: 100%;
+}
+.contact-modal h1 {
+  margin: 0;
+}
+.contact-modal h2 {
+  margin-top: 0;
+}
+.contact-modal form {
+  width: 100%;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.contact-modal form .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.contact-modal form input,
+.contact-modal form textarea {
+  border-radius: 5px;
+  border-color: unset;
+  border-style: none;
+}
+.contact-modal form input {
+  height: 50px;
+}
+.contact-modal form textarea {
+  min-height: 100px;
+}
+.contact-modal form label {
+  color: #312e2e;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.contact-modal form .submit-button-container {
+  display: flex;
+  justify-content: center;
+}
+.contact-modal form .submit-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 75px;
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-modal {
+    margin: 80px auto 0 auto;
+    width: 570px;
+    min-height: 790px;
+  }
+  .contact-modal h1,
+.contact-modal h2 {
+    font-size: 2.7em !important;
+  }
+  .contact-modal form {
+    font-size: 1.5em;
+  }
+  .contact-modal form .submit-button-container {
+    justify-content: flex-start;
+    margin-top: 25px;
+  }
+}
 ul {
   justify-content: center;
 }

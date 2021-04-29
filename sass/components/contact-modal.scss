@@ -1,0 +1,114 @@
+.modal-background {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  z-index: 15;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.contact-modal {
+  display: flex;
+  min-height: 100%;
+  position: relative;
+  width: 100vw;
+  background-color: $color-tertiary;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .modal-close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  h1,
+  h2 {
+    font-weight: normal;
+    font-size: 2.25em;
+    line-height: 1.3em;
+    width: 100%;
+  }
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  form {
+    width: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+
+    .form-input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    input,
+    textarea {
+      border-radius: 5px;
+      border-color: unset;
+      border-style: none;
+    }
+
+    input {
+      height: 50px;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    label {
+      color: #312e2e;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    .submit-button-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .submit-button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 75px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-modal {
+    margin: 80px auto 0 auto;
+    width: 570px;
+    min-height: 790px;
+
+    h1,
+    h2 {
+      font-size: 2.7em !important;
+    }
+
+    form {
+      font-size: 1.5em;
+
+      .submit-button-container {
+        justify-content: flex-start;
+        margin-top: 25px;
+      }
+    }
+  }
+}

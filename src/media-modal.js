@@ -20,7 +20,7 @@ function initMediaModalListenerCLick(mediaContentAll, photographer) {
   mediaContentAll.forEach((media) => {
     media.addEventListener("click", (evt) => {
       const selectedElement = evt.currentTarget;
-      onOpenModal(selectedElement);
+      onOpenMediaModal(selectedElement);
     });
   });
 
@@ -28,12 +28,12 @@ function initMediaModalListenerCLick(mediaContentAll, photographer) {
 }
 
 // Init listener on click on close button
-closeButton.addEventListener("click", onCLoseModal);
+closeButton.addEventListener("click", onCLoseMediaModal);
 
 // Init listener on press escape on media modal
 document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape" && modal.ariaHidden === "false") {
-    onCLoseModal();
+  if (evt.key === "Escape" && mediaModal.ariaHidden === "false") {
+    onCLoseMediaModal();
   }
 });
 
@@ -58,7 +58,7 @@ document.addEventListener("keydown", (evt) => {
 });
 
 // Display Media modal with title and pictures
-function onOpenModal(selectedElement) {
+function onOpenMediaModal(selectedElement) {
   currentMediaDisplayed = selectedElement;
   initialMediaSelected = currentMediaDisplayed;
   const mediaIDSelected = +selectedElement.dataset.mediaId;
@@ -66,7 +66,7 @@ function onOpenModal(selectedElement) {
     photographerMedias.find((media) => media.id === mediaIDSelected)
   );
 
-  displayAccessibilityAttributes(mediaSelectedWithInfo);
+  displayMediaAccessibilityAttributes(mediaSelectedWithInfo);
   displayMediaTitle(mediaSelectedWithInfo);
   displayMedia(mediaSelectedWithInfo);
 
@@ -74,9 +74,9 @@ function onOpenModal(selectedElement) {
 }
 
 // Close modal
-function onCLoseModal() {
+function onCLoseMediaModal() {
   mediaModal.style.display = "none";
-  removeAccessibilityAttributes();
+  removeMediaAccessibilityAttributes();
 }
 
 // Display next media on click on right arrow
@@ -92,7 +92,7 @@ function displayNextMedia() {
 
   displayMediaTitle(nextMedia);
   displayMedia(nextMedia);
-  displayAccessibilityTitleAttributes(nextMedia);
+  displayMediaAccessibilityAttributes(nextMedia);
 }
 
 // Display previous media on click on left arrow
@@ -110,28 +110,28 @@ function displayPreviousMedia() {
 
   displayMediaTitle(previousMedia);
   displayMedia(previousMedia);
-  displayAccessibilityTitleAttributes(previousMedia);
+  displayMediaAccessibilityAttributes(previousMedia);
 }
 
 // Utils functions
 
-function displayAccessibilityAttributes(mediaSelectedWithInfo) {
+function displayMediaAccessibilityAttributes(mediaSelectedWithInfo) {
   addAttribute(currentMediaDisplayed, "data-checked", "true");
   addAttribute(mainContent, "aria-hidden", "true");
   addAttribute(mediaModal, "aria-hidden", "false");
-  displayAccessibilityTitleAttributes(mediaSelectedWithInfo);
+  displayLinkAccessibilityTitleAttributes(mediaSelectedWithInfo);
   addClass(body, "no-scroll");
   removeClass(body, "body");
   closeButton.focus();
 }
 
 // Display accessibility Title on modal
-function displayAccessibilityTitleAttributes(media) {
+function displayLinkAccessibilityTitleAttributes(media) {
   addAttribute(mediaModal, "aria-labelledby", media.name);
   addAttribute(title, "id", media.name);
 }
 
-function removeAccessibilityAttributes() {
+function removeMediaAccessibilityAttributes() {
   addAttribute(mainContent, "aria-hidden", "false");
   addAttribute(mediaModal, "aria-hidden", "true");
   removeClass(body, "no-scroll");
