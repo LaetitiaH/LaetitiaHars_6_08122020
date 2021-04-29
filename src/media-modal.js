@@ -7,6 +7,7 @@ const closeButton = document.querySelector(".modal-close-button");
 const nextButton = document.querySelector(".next-media-button");
 const previousButton = document.querySelector(".previous-media-button");
 const media = document.querySelector(".media");
+const title = document.querySelector("#titre");
 
 // Variables
 
@@ -65,7 +66,7 @@ function onOpenModal(selectedElement) {
     photographerMedias.find((media) => media.id === mediaIDSelected)
   );
 
-  displayAccessibilityAttributes();
+  displayAccessibilityAttributes(mediaSelectedWithInfo);
   displayMediaTitle(mediaSelectedWithInfo);
   displayMedia(mediaSelectedWithInfo);
 
@@ -91,6 +92,7 @@ function displayNextMedia() {
 
   displayMediaTitle(nextMedia);
   displayMedia(nextMedia);
+  displayAccessibilityTitleAttributes(nextMedia);
 }
 
 // Display previous media on click on left arrow
@@ -108,17 +110,25 @@ function displayPreviousMedia() {
 
   displayMediaTitle(previousMedia);
   displayMedia(previousMedia);
+  displayAccessibilityTitleAttributes(previousMedia);
 }
 
 // Utils functions
 
-function displayAccessibilityAttributes() {
+function displayAccessibilityAttributes(mediaSelectedWithInfo) {
   addAttribute(currentMediaDisplayed, "data-checked", "true");
   addAttribute(mainContent, "aria-hidden", "true");
   addAttribute(mediaModal, "aria-hidden", "false");
+  displayAccessibilityTitleAttributes(mediaSelectedWithInfo);
   addClass(body, "no-scroll");
   removeClass(body, "body");
   closeButton.focus();
+}
+
+// Display accessibility Title on modal
+function displayAccessibilityTitleAttributes(media) {
+  addAttribute(mediaModal, "aria-labelledby", media.name);
+  addAttribute(title, "id", media.name);
 }
 
 function removeAccessibilityAttributes() {
