@@ -247,9 +247,6 @@ main header {
     display: flex;
     align-items: center;
   }
-  .profil-pictures-list .profil-pictures-list__picture div p:nth-child(2n) img {
-    margin-left: 5px;
-  }
   .profil-pictures-list .profil-pictures-list__picture div .heart {
     width: 18px;
     height: 18px;

@@ -3,17 +3,26 @@ const contactModal = document.querySelector(".contact-modal");
 const contactModaltitle = document.querySelector("#contact-modal-titre");
 const closeContactButton = document.querySelector(".modal-close-button--white");
 const modalBackground = document.querySelector(".modal-background");
+const submitButton = document.querySelector(".submit-button");
 
 contactsButton.forEach((contactButton) => {
-  contactButton.addEventListener("click", () => {
+  contactButton.addEventListener("click", (evt) => {
     onOpenContactModal();
   });
+});
+
+// Change focus on closebutton on last clickable element
+submitButton.addEventListener("keydown", (evt) => {
+  if (evt.key === "Tab" && contactModal.ariaHidden === "false") {
+    evt.preventDefault();
+    closeContactButton.focus();
+  }
 });
 
 // Init listener on click on close button
 closeContactButton.addEventListener("click", onCloseContactModal);
 
-// Display Media modal with title and pictures
+// Display Contact modal with title and pictures
 function onOpenContactModal() {
   modalBackground.style.display = "block";
   displayContactAccessibilityAttributes();
@@ -28,7 +37,8 @@ function onCloseContactModal() {
 
 function displayContactAccessibilityAttributes() {
   addAttribute(mainContent, "aria-hidden", "true");
-  addAttribute(contactModaltitle, "aria-hidden", "false");
+  addAttribute(contactModal, "aria-hidden", "false");
+  addAttribute(contactModal, "aria-modal", "true");
   displayAccessibilityTitleAttributes(photographer);
   addClass(body, "no-scroll");
   closeContactButton.focus();
@@ -36,7 +46,8 @@ function displayContactAccessibilityAttributes() {
 
 function removeContactAccessibilityAttributes() {
   addAttribute(mainContent, "aria-hidden", "false");
-  addAttribute(contactModaltitle, "aria-hidden", "true");
+  addAttribute(contactModal, "aria-hidden", "true");
+  addAttribute(contactModal, "aria-modal", "false");
   removeClass(body, "no-scroll");
   contactsButton.forEach((contactButton) => {
     contactButton.focus();

@@ -43,7 +43,7 @@ nextButton.addEventListener("click", () => {
 });
 
 // Init listener on click on previous button modal
-previousButton.addEventListener("click", () => {
+previousButton.addEventListener("click", (previousButton) => {
   displayPreviousMedia();
 });
 
@@ -54,6 +54,14 @@ document.addEventListener("keydown", (evt) => {
   }
   if (evt.key === "ArrowLeft" && mediaModal.ariaHidden === "false") {
     displayPreviousMedia();
+  }
+});
+
+// Change focus on closebutton on last clickable element
+nextButton.addEventListener("keydown", (evt) => {
+  if (evt.key === "Tab" && mediaModal.ariaHidden === "false") {
+    evt.preventDefault();
+    closeButton.focus();
   }
 });
 
