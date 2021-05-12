@@ -485,6 +485,7 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .media-modal .modal-content .media {
   height: 250px;
