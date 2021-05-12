@@ -37,7 +37,7 @@ function displayPicture(template, media) {
   let mediaToInsert;
   if (media.type === "img") {
     mediaToInsert = `<img class="photographer-picture" src="${media.getImgSrcFormatted()}" alt="${
-      media.name
+      media.description
     }" />`;
   } else {
     mediaToInsert = `<video class="photographer-picture" controls>
