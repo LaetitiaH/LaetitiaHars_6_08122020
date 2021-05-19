@@ -39,7 +39,7 @@ function displayProfilPhotographerInformations(element, value) {
   addTextContent(profilLocalization, value.getFormattedLocalization());
   addTextContent(profilQuote, value.tagline);
 
-  addAttribute(profilTag, "aria-label", `${value.name} personal categories`);
+  addAttribute(profilTag, "aria-label", `${value.name} categorie personnelle`);
 
   const tagsList = value.tags
     .map(

@@ -32,7 +32,10 @@ closeButton.addEventListener("click", onCLoseMediaModal);
 
 // Init listener on press escape on media modal
 document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape" && mediaModal.ariaHidden === "false") {
+  if (
+    evt.key === "Escape" &&
+    mediaModal.getAttribute("aria-hidden") === "false"
+  ) {
     onCLoseMediaModal();
   }
 });
@@ -49,17 +52,23 @@ previousButton.addEventListener("click", (previousButton) => {
 
 // Init listener on press arrow right or left on media modal
 document.addEventListener("keydown", (evt) => {
-  if (evt.key === "ArrowRight" && mediaModal.ariaHidden === "false") {
+  if (
+    evt.key === "ArrowRight" &&
+    mediaModal.getAttribute("aria-hidden") === "false"
+  ) {
     displayNextMedia();
   }
-  if (evt.key === "ArrowLeft" && mediaModal.ariaHidden === "false") {
+  if (
+    evt.key === "ArrowLeft" &&
+    mediaModal.getAttribute("aria-hidden") === "false"
+  ) {
     displayPreviousMedia();
   }
 });
 
 // Change focus on closebutton on last clickable element
 nextButton.addEventListener("keydown", (evt) => {
-  if (evt.key === "Tab" && mediaModal.ariaHidden === "false") {
+  if (evt.key === "Tab" && !mediaModal.ariaHidden) {
     evt.preventDefault();
     closeButton.focus();
   }

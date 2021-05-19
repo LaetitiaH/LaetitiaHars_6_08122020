@@ -13,7 +13,10 @@ contactsButton.forEach((contactButton) => {
 
 // Change focus on closebutton on last clickable element
 submitButton.addEventListener("keydown", (evt) => {
-  if (evt.key === "Tab" && contactModal.ariaHidden === "false") {
+  if (
+    evt.key === "Tab" &&
+    contactModal.getAttribute("aria-hidden") === "false"
+  ) {
     evt.preventDefault();
     closeContactButton.focus();
   }

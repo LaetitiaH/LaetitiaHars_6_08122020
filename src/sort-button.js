@@ -56,6 +56,10 @@ function openSort() {
     toggleClass(sortItem, "itemCollapsed");
   });
 
+  focusSort();
+}
+
+function focusSort() {
   const sortButtonItems = sortButton.querySelector(".sort-item-list");
   sortButtonItems.focus();
 }
@@ -70,6 +74,7 @@ function closeSort() {
   addClass(sortButton, "sort-button");
   addAttribute(sortButton, "aria-expanded", false);
   isSortOpen = false;
+  focusSort();
 }
 
 function displayPhotographerMediaByFilter(selectedItem) {
