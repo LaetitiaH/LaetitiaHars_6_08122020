@@ -444,7 +444,6 @@ aside {
   line-height: 1.4375em;
   text-align: center;
   font-size: 1.1em;
-  background-color: transparent;
   color: transparent;
   border-radius: 5px;
   cursor: none;
@@ -498,7 +497,7 @@ aside {
   object-fit: cover;
   border-radius: 5px;
 }
-.media-modal .modal-content h1 {
+.media-modal .modal-content .modal-title {
   font-size: 0.8em;
   line-height: 1.12em;
   color: #901c1c;
@@ -528,7 +527,7 @@ aside {
 .media-modal .modal-content .media video {
     object-fit: initial;
   }
-  .media-modal .modal-content h1 {
+  .media-modal .modal-content .modal-title {
     font-size: 1.5em;
     line-height: 1.9em;
   }
@@ -702,6 +701,8 @@ main header .profil-photo--small,
 main header .profil-photo--big {
   margin-top: 15px;
   align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
 }
 main header .profil-photo--big {
   display: none;
@@ -738,10 +739,20 @@ main .media {
     background-color: #fafafa;
     border-radius: 5px;
   }
-  main header section {
+  main header .profil-photo--big {
+    display: flex;
+  }
+  main header .profil-photo--small {
+    display: none;
+  }
+  main header section,
+main header .profil-photo--big,
+main header .profil-photo--small {
     margin-bottom: 0;
   }
-  main header section .photographer-title {
+  main header section .photographer-title,
+main header .profil-photo--big .photographer-title,
+main header .profil-photo--small .photographer-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -754,12 +765,6 @@ main .media {
   }
   main .profil-pictures-list {
     margin-top: 100px;
-  }
-  main .profil-photo--big {
-    display: flex;
-  }
-  main .profil-photo--small {
-    display: none;
   }
   main .contact-button_fixed {
     display: none;

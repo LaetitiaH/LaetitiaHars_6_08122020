@@ -7,7 +7,7 @@
     <title>Fisheye</title>
   </head>
   <body class="body">
-    <header class="index-header" role="banner">
+    <header class="index-header">
       <a class="evitement-link" href="#main-content">Passer au contenu</a>
       <section>
         <a aria-label="Fisheye" href="#">
@@ -15,11 +15,7 @@
         </a>
         <h1>Nos photographes</h1>
       </section>
-      <nav
-        role="navigation"
-        class="tag main-nav"
-        aria-label="photographer categories"
-      >
+      <nav class="tag main-nav" aria-label="photographer categories">
         <ul id="filtersList"></ul>
       </nav>
     </header>
@@ -32,20 +28,20 @@
     <script src="src/service.js"></script>
     <script src="src/filtersList.js"></script>
     <script src="src/index.js"></script>
-  </body>
 
-  <template id="photograph">
-    <article>
-      <a aria-label="" href="#">
-        <img class="profil-photo_big" src="#" alt="photographer photo" />
-        <h2 class="profil-title"></h2>
-      </a>
-      <div class="photographer-informations">
-        <p class="localization"></p>
-        <p class="quote"></p>
-        <p class="price"></p>
-      </div>
-      <ul class="photographer-tag tag"></ul>
-    </article>
-  </template>
+    <template id="photograph">
+      <article>
+        <a aria-label="" href="#">
+          <img class="profil-photo_big" src="#" alt="photographer photo" />
+          <h2 class="profil-title"></h2>
+        </a>
+        <div class="photographer-informations">
+          <p class="localization"></p>
+          <p class="quote"></p>
+          <p class="price"></p>
+        </div>
+        <ul class="photographer-tag tag"></ul>
+      </article>
+    </template>
+  </body>
 </html>

@@ -11,7 +11,7 @@
     <title>Page photographe</title>
   </head>
   <body class="body">
-    <header class="photographer-header" role="banner">
+    <header class="photographer-header">
       <a aria-label="Fisheye" href="index.html">
         <img src="assets/logo/logo.svg" alt="Fisheye Home page" />
       </a>
@@ -20,7 +20,7 @@
       <header>
         <section class="photographer-informations">
           <div class="photographer-title">
-            <h1 class="profil-title"></h1>
+            <h2 class="profil-title">...</h2>
             <button
               aria-label="Contactez-moi"
               class="contact-button photographer-title__contact-button"
@@ -33,27 +33,27 @@
             <p class="localization"></p>
             <p class="quote quote--grey"></p>
           </div>
-          <ul class="photographer-tag" aria-label=""></ul>
+          <ul class="photographer-tag"></ul>
         </section>
 
-        <section aria-label="photo" class="profil-photo--small">
+        <div class="profil-photo--small">
           <img class="profil-photo_small" src="#" alt="" />
-        </section>
-        <section class="profil-photo--big">
+        </div>
+        <div class="profil-photo--big">
           <img class="profil-photo_big" src="#" alt="" />
-        </section>
+        </div>
       </header>
-      <section class="sort">
+      <div class="sort">
         <label aria-label="Trier par">Trier par </label>
         <ul
-          id="Trier par"
+          id="TrierPar"
           role="listbox"
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-label="Trier par"
           class="sort-button"
         ></ul>
-      </section>
+      </div>
 
       <div class="profil-pictures-list"></div>
 
@@ -96,7 +96,7 @@
         aria-label="Liste des médias du photographe"
       >
         <div class="media"></div>
-        <h1 id="titre" class="modal-title"></h1>
+        <h2 id="titre" class="modal-title">Média Titre</h2>
       </section>
       <button
         aria-label="Média suivant"
@@ -122,7 +122,7 @@
           class="modal-close-button--white"
         ></button>
         <h1>Contactez moi</h1>
-        <h2 id="contact-modal-titre"></h2>
+        <h2 id="contact-modal-titre">Nom Photographe</h2>
         <form id="contact" onsubmit="sendForm()" action="javascript:void(0);">
           <div class="form-input">
             <label for="firstName">Prénom</label>
@@ -182,23 +182,27 @@
     <script src="src/like.js"></script>
     <script src="src/media-modal.js"></script>
     <script src="src/contact-modal.js"></script>
-  </body>
 
-  <template id="photograph-picture">
-    <article class="profil-pictures-list__picture">
-      <button type="button" class="media"></button>
-      <section class="profil-pictures-list__description">
-        <h2></h2>
-        <div>
-          <p class="picture-price"></p>
-          <p>
-            <span class="picture-likes"></span>
-            <button class="heart-button" type="button" aria-label="Like">
-              <img class="heart" src="assets/icons/heart-red.png" alt="likes" />
-            </button>
-          </p>
-        </div>
-      </section>
-    </article>
-  </template>
+    <template id="photograph-picture">
+      <article class="profil-pictures-list__picture">
+        <button type="button" class="media"></button>
+        <section class="profil-pictures-list__description">
+          <h2></h2>
+          <div>
+            <p class="picture-price"></p>
+            <p>
+              <span class="picture-likes"></span>
+              <button class="heart-button" type="button" aria-label="Like">
+                <img
+                  class="heart"
+                  src="assets/icons/heart-red.png"
+                  alt="likes"
+                />
+              </button>
+            </p>
+          </div>
+        </section>
+      </article>
+    </template>
+  </body>
 </html>
