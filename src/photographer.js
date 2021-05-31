@@ -56,7 +56,11 @@ function displayPicture(template, media) {
   addTextContent(mediaPrice, `${media.price} €`);
   addTextContent(mediaLikes, media.likes);
   addAttribute(likeButton, "data-media-Id", media.id);
-  addAttribute(mediaContent, "aria-label", media.name);
+  addAttribute(
+    mediaContent,
+    "aria-label",
+    `${media.name} ${media.description}`
+  );
   addAttribute(mediaContent, "data-media-Id", media.id);
 
   // create Dom elements

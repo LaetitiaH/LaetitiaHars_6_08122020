@@ -68,7 +68,7 @@ document.addEventListener("keydown", (evt) => {
 
 // Change focus on closebutton on last clickable element
 nextButton.addEventListener("keydown", (evt) => {
-  if (evt.key === "Tab" && !mediaModal.ariaHidden) {
+  if (evt.key === "Tab" && mediaModal.getAttribute("aria-hidden") === "false") {
     evt.preventDefault();
     closeButton.focus();
   }
@@ -136,6 +136,11 @@ function displayMediaAccessibilityAttributes(mediaSelectedWithInfo) {
   addAttribute(currentMediaDisplayed, "data-checked", "true");
   addAttribute(mainContent, "aria-hidden", "true");
   addAttribute(mediaModal, "aria-hidden", "false");
+  addAttribute(
+    media,
+    "aria-label",
+    `${mediaSelectedWithInfo.name} ${mediaSelectedWithInfo.description}`
+  );
   displayLinkAccessibilityTitleAttributes(mediaSelectedWithInfo);
   addClass(body, "no-scroll");
   removeClass(body, "body");
